@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "destination": "https://your-backend-url.onrender.com/api/$1"
+      "dest": "https://your-backend-url.onrender.com/api/$1"
     },
     {
       "src": "/(.*)",
-      "destination": "/index.html"
+      "dest": "/index.html"
     }
   ],
   "env": {
