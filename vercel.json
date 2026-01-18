@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "npm install -g npm@latest && npm install --workspaces",
+  "installCommand": "npm install --workspaces",
+  "buildCommand": "npm run build --workspace=frontend",
+  "outputDirectory": "frontend/dist",
   "builds": [
     {
       "src": "backend/server.js",
@@ -8,14 +10,6 @@
       "config": {
         "maxLambdaSize": "50mb",
         "runtime": "nodejs18.x"
-      }
-    },
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "npm run build --workspace=frontend",
-        "outputDirectory": "frontend/dist"
       }
     }
   ],
