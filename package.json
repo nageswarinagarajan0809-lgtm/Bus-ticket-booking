@@ -1,0 +1,26 @@
+{
+  "name": "bus-ticket-booking-app",
+  "version": "1.0.0",
+  "description": "Bus ticket booking system - Full Stack MERN Application",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install-all": "npm install",
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspaces --if-present",
+    "build:backend": "npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "start": "npm run start --workspace=backend",
+    "preview:frontend": "npm run preview --workspace=frontend",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present"
+  },
+  "keywords": ["bus", "booking", "mern", "full-stack"],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,23 +1,32 @@
 {
   "version": 2,
+  "buildCommand": "npm install -g npm@latest && npm install --workspaces",
   "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "runtime": "nodejs18.x"
+      }
+    },
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist"
+        "buildCommand": "npm run build --workspace=frontend",
+        "outputDirectory": "frontend/dist"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://your-backend-url.onrender.com/api/$1"
+      "dest": "/backend/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/frontend/dist/index.html"
     }
   ]
 }
